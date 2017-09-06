@@ -17,8 +17,12 @@
 	
 	"content_scripts":[
 		{
-			"matches":["*://www.google.com.hk/*"],
+			"matches":["*://www.google.com.hk/"],
 			"js":["js/move_btn.js"]
+		},
+		{
+			"matches":["*://logview.wsd.com/*"],
+			"js":["js/logview.js"]
 		}
 	]
 }

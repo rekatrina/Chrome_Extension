@@ -19,5 +19,5 @@ function over_btn(e){
 
 alert("here!")
 var n = document.getElementsByName('btnK').length
-alert(n)
+alert("num of btnK:" + n)
 document.getElementsByName('btnK')[0].onmouseover = over_btn;

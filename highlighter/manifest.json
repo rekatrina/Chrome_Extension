@@ -12,7 +12,8 @@
 	},
 
 	"permissions":[
-		"https://secure.flickr.com/"
+		"https://secure.flickr.com/",
+		"tabs"
 	],
 	
 	"content_scripts":[

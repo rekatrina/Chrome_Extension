@@ -8,15 +8,19 @@ function ClickSearch(){
 
 function parseEveryLine(trEl){
 	var str = trEl.getElementsByTagName("td")[1].innerHTML
-	var fields = str.split("|");
-	alert("#field:"+fields.length)
-	var newStr = "";
+	var fields = str.split("|")
+	var newStr = ""
 	
-	var field_color = {10:"#FF0000", 11:"#FF0000", 14:"#FF0000", 18:"#FF0000", 20:"#FF0000"}
+	var field_color = {0:"#e5d5a6",10:"#FF0000", 11:"#FF0000", 14:"#FF0000", 18:"#FF0000", 20:"#FF0000"}
+	var field_prefix = {10:"动作"}
 	
 	for(var i=0; i<fields.length; i++){
+		if(field_prefix.hasOwnProperty(i)){
+			fields[i] = field_prefix[i] + fields[i]
+		}
+		
 		if(field_color.hasOwnProperty(i))
-			newStr = newStr + '<font color="#FF0000">' + fields[i] + "</font>" + "|"
+			newStr = newStr + '<font color='+ field_color[i] +'>' + fields[i] + "</font>" + "|"
 		else
 			newStr = newStr + fields[i] + "|"
 	}
@@ -34,13 +38,13 @@ function parseLog(){
 		alert("请先提交查询")
 	}
 	else{
-		parseEveryLine(trList[1])
+		for(var i=1; i<trList.length; i++)
+		parseEveryLine(trList[i])
 	}
-	var flag_row = document.createElement("<tr><td class="line_td" data-line-num="1">::before</td><td>done by Log HighLight</td>)
-	var flag_row_1 = document.createElement('')
+	var flag_row = document.createElement('<tr><td class="line_td" data-line-num="0">::before</td><td>done by Log HighLight</td></tr>')
 	
-	table.insertBefore(, trList[0])
-	
+	table.appendChild(flag_row)
+	alert("done")
 	//var firstLine = trList[1].getElementsByTagName("td")[1]
 }
 
